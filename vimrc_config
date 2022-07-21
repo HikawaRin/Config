@@ -1,3 +1,8 @@
+set fileencodings=ucs-bom,utf-8,utf-16,gbk,big5,gb18030,latin1
+
+set switchbuf=useopen,usetab,newtab
+
+set bg=dark
 let mapleader = ","
 
 nnoremap <leader>m :Lexplore<CR>
@@ -43,12 +48,21 @@ set nocompatible
 
 " Turn on syntax highlighting.
 syntax on
+filetype indent on
 
 " Disable the default Vim startup message.
 set shortmess+=I
 
 " Show line numbers.
 set number
+
+set expandtab
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set autoindent
+
+set autoread
 
 " This enables relative line numbering mode. With both number and
 " relativenumber enabled, the current line shows the true line number, while
@@ -108,3 +122,7 @@ inoremap <Left>  <ESC>:echoe "Use h"<CR>
 inoremap <Right> <ESC>:echoe "Use l"<CR>
 inoremap <Up>    <ESC>:echoe "Use k"<CR>
 inoremap <Down>  <ESC>:echoe "Use j"<CR>
+
+autocmd FileType c,cc,cpp,h,hh,hpp setlocal tabstop=2 softtabstop=2 shiftwidth=2
+autocmd FileType make setlocal noexpandtab shiftwidth=8 softtabstop=0
+autocmd FileType markdown setlocal textwidth=0 wrapmargin=0 shiftwidth=2 tabstop=2
